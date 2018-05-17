@@ -1,24 +1,27 @@
-# README
+Boarditt
+This project used Sinatra and Active Record to showcase the basics of a CRUD (Create, Read, Update and Delete) application in the form of a "Social network" with and upvote and downvote system.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application can display content shared by the users; said users can manage their own content updating and deleting and comment on other users content.
 
-Things you may want to cover:
+Use
+Download repository, update dependecies with:
 
-* Ruby version
+bundle install
 
-* System dependencies
 
-* Configuration
+In the base directory run with:
 
-* Database creation
+bundle exec rackup
 
-* Database initialization
 
-* How to run the test suite
+## Contributing
 
-* Services (job queues, cache servers, search engines, etc.)
+Bug reports and pull requests are welcome on GitHub at https://github.com/jljardon/boarditt. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
-* Deployment instructions
+## License
 
-* ...
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Boarditt project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jljardon/boarditt/blob/master/CODE_OF_CONDUCT.md).
