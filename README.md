@@ -1,17 +1,21 @@
-Boarditt
-This project used Sinatra and Active Record to showcase the basics of a CRUD (Create, Read, Update and Delete) application in the form of a "Social network" with and upvote and downvote system.
+# Boarditt
+This project uses Rails, Bulma CSS framework and Active Record to showcase the basics of a CRUD (Create, Read, Update and Delete) application in the form of a "Social network" with and upvote and downvote system.
 
 The application can display content shared by the users; said users can manage their own content updating and deleting and comment on other users content.
 
-Use
+## Use
+
 Download repository, update dependecies with:
 
+```
 bundle install
-
+```
 
 In the base directory run with:
 
+```
 bundle exec rackup
+```
 
 
 ## Contributing
