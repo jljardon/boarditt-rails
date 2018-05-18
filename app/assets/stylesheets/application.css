@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+@import "bulma";
+
+.is-section-content { height: 93vh; }
+
+.navbar-text {
+color: #FFF;
+background-color: #e95420;
+text-shadow: #000 0 0 15px;
+}
+
+.bg {
+    background-image: url("https://imgur.com/YJTp55G.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
