@@ -1,20 +1,29 @@
+<div class="columns is-multiline">
+  <div class="column is-two-fifths">
+    <div class="box">
+      <h2>Create account</h2>
+      <%= form_for @user do |f| %>
+      <%= f.label 'Email:',class: 'subtitle is-5' %>
+      <%= f.text_field :email , {class:'input', placeholder:"example@example.com"}%>
+      <br>
+      <br>
+      <%= f.label 'Username:',class: 'subtitle is-5' %>
+      <%= f.text_field :username , {class:'input', placeholder:"boarditt_username"}%>
+      <br>
+      <br>
+      <%= f.label 'Password:' ,class: 'subtitle is-5'%>
+      <%= f.password_field :password , {class:'input', placeholder:"*******"}%><br>
+      <br>
+      <%= f.label 'Password confirmation:' ,class: 'subtitle is-5'%>
+      <%= f.password_field :password_confirmation , {class:'input', placeholder:"*******"}%><br>
+      <br>
+      <%= f.submit "Sign up", class:"button is-light"%>
+    <% end %>
+  </div>
+</div>
 
-            <h2>Create account</h2>
+<div class="column">
+  <%= render "terms" %>
+</div>
 
-            <%= form_for @user do |f| %>
-            <%= f.label 'Email:',class: 'subtitle is-5' %>
-            <%= f.text_field :email , {class:'input', placeholder:"example@example.com"}%>
-            <br>
-            <br>
-            <%= f.label 'Username:',class: 'subtitle is-5' %>
-            <%= f.text_field :username , {class:'input', placeholder:"boarditt_username"}%>
-            <br>
-            <br>
-            <%= f.label 'Password:' ,class: 'subtitle is-5'%>
-            <%= f.password_field :password , {class:'input', placeholder:"*******"}%><br>
-            <br>
-            <%= f.label 'Password confirmation:' ,class: 'subtitle is-5'%>
-            <%= f.password_field :password_confirmation , {class:'input', placeholder:"*******"}%><br>
-            <br>
-            <%= f.submit "Sign up", class:"button is-light"%>
-          <% end %>
+</div>

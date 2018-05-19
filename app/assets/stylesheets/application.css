@@ -1,33 +1,40 @@
 /*
 *= require bulma
 */
-.is-section-content { height: 80%; }
+
+.is-section-content {
+  height: 80%;
+}
 
 body, html {
-    height: 100%;
+  height: 100%;
+  /* overflow-y: hidden; */
 }
 
 .navbar-text {
-color: #FFF;
-background-color: #e95420;
-text-shadow: #000 0 0 15px;
+  color: #FFF;
+  background-color: #e95420;
+  text-shadow: #000 0 0 15px;
 }
 
-.is-inside-section-content{height: 100%;}
+.is-inside-section-content {
+  height: 100%;
+}
 
 .bg {
-    background-image: url("https://imgur.com/YJTp55G.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("https://imgur.com/YJTp55G.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .terms {
-    height: calc(40% - (100px + 150px));
+  height: calc(40% - (100px + 150px));
 }
 
-.terms-text{
-  border:1px solid #ccc;
-  overflow:auto;
+.terms-text {
+  /* border: 1px solid #ccc; */
+  height: 377px;
+  overflow: auto;
 }
