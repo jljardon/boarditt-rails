@@ -1,13 +1,19 @@
 /*
 *= require bulma
 */
-.is-section-content { height: 93vh; }
+.is-section-content { height: 80%; }
+
+body, html {
+    height: 100%;
+}
 
 .navbar-text {
 color: #FFF;
 background-color: #e95420;
 text-shadow: #000 0 0 15px;
 }
+
+.is-inside-section-content{height: 100%;}
 
 .bg {
     background-image: url("https://imgur.com/YJTp55G.jpg");

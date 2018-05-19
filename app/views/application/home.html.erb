@@ -1,49 +1,38 @@
-<section class="container is-section-content ">
-  <div class="columns ">
 
-    <div class="column">
-      <div class="content">
+<div class="columns is-multiline">
+  <div class="column is-two-fifths ">
+    <div class="box">
 
+      <h1 class="title is-2">Welcome to Boarditt!</h1>
+      <p>Boarditt is platform to share content with strangers.</p>
+      <br>
+      <%= form_for @user do |f| %>
+      <%= f.label 'Username:',class: 'subtitle is-5' %>
+      <%= f.text_field :username , class:'input column'%>
+      <br>
+      <%= f.label 'Password:' ,class: 'subtitle is-5'%>
+      <%= f.password_field :password , class:'input column'%><br>
 
-        <section class="columns">
-
-          <div class=" column is-one-third is-narrow">
-            <div class="box">
-                <h1>Welcome to Boarditt!</h1>
-              <p>Boarditt is platform to share content with strangers.</p>
-              <%= form_for @user do |f| %>
-              <%= f.label 'Username:',class: 'subtitle is-5' %>
-              <%= f.text_field :username , class:'input column'%>
-              <br>
-              <%= f.label 'Password:' ,class: 'subtitle is-5'%>
-              <%= f.password_field :password , class:'input column'%><br>
-
-              <%= f.submit "Login", class:"button is-light"%>
-            <% end %>
-          </div>
-        </div>
-
-        <div class="column ">
-          <div class="box">
-            <p class="title is-3">Don't have an account?</p>
-            <h3>
-              <%=link_to "Sign up", new_user_path%>
-            </h3>
-          </div>
-
-          <div class="box">
-            <p class="title is-3">Or login with:</p>
-
-            <h3>Facebook - Google</h3>
-          </div>
-
-        </div>
-
-        <!--Login with FB-->
-
-      </section>
-
-    </div>
+      <%= f.submit "Login", class:"button is-light"%>
+    <% end %>
   </div>
 </div>
-</section>
+
+<div class="column">
+  <div class="box">
+    <p class="title is-3">Don't have an account?</p>
+<br>
+    <p class="subtitle is-4">
+      <%=link_to "Sign up", new_user_path%>
+    </p>
+  </div>
+<hr>
+  <div class="box">
+    <p class="title is-3">Or login with:</p>
+    <br>
+    <br>
+    <h3 class="title is-4">Facebook - Google</h3>
+  </div>
+</div>
+
+</div>

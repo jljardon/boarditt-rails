@@ -1,12 +1,4 @@
-<section class="container is-section-content ">
 
-  <div class="columns">
-    <div class="column is-two-fifths">
-
-      <div class="box">
-
-        <div class="columns ">
-          <div class="column is-multiline">
             <h2>Create account</h2>
 
             <%= form_for @user do |f| %>
@@ -26,11 +18,3 @@
             <br>
             <%= f.submit "Sign up", class:"button is-light"%>
           <% end %>
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <%= render "terms" %>
-</section>
