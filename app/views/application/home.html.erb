@@ -3,9 +3,47 @@
 
     <div class="column">
       <div class="content">
-        <h1>Welcome to Boarditt-Rails!</h1>
+        <h1>Welcome to Boarditt!</h1>
 
-      </div>
+        <section class="columns">
+
+          <div class=" column is-one-third is-narrow">
+            <div class="box">
+              <p>Boarditt is platform to share content with strangers.</p>
+              <%= form_for @user do |f| %>
+              <%= f.label 'Username:',class: 'subtitle is-5' %>
+              <%= f.text_field :username , class:'input column'%>
+              <br>
+              <%= f.label 'Password:' ,class: 'subtitle is-5'%>
+              <br>
+              <%= f.password_field :password , class:'input column'%><br>
+
+              <%= f.submit "Login", class:"button is-light"%>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="column ">
+          <div class="box">
+            <p class="title is-3">Don't have an account?</p>
+            <h3>
+              <%=link_to "Sign up", new_user_path%>
+            </h3>
+          </div>
+
+          <div class="box">
+            <p class="title is-3">Or login with:</p>
+
+            <h3>Facebook - Google</h3>
+          </div>
+
+        </div>
+
+        <!--Login with FB-->
+
+      </section>
+
     </div>
   </div>
+</div>
 </section>
