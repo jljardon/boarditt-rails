@@ -1,21 +1,21 @@
 <section class="container is-section-content ">
-  <div class="columns box">
+  <div class="columns ">
 
     <div class="column">
       <div class="content">
-        <h1>Welcome to Boarditt!</h1>
+
 
         <section class="columns">
 
           <div class=" column is-one-third is-narrow">
             <div class="box">
+                <h1>Welcome to Boarditt!</h1>
               <p>Boarditt is platform to share content with strangers.</p>
               <%= form_for @user do |f| %>
               <%= f.label 'Username:',class: 'subtitle is-5' %>
               <%= f.text_field :username , class:'input column'%>
               <br>
               <%= f.label 'Password:' ,class: 'subtitle is-5'%>
-              <br>
               <%= f.password_field :password , class:'input column'%><br>
 
               <%= f.submit "Login", class:"button is-light"%>

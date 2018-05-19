@@ -16,3 +16,12 @@ text-shadow: #000 0 0 15px;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.terms {
+    height: calc(40% - (100px + 150px));
+}
+
+.terms-text{
+  border:1px solid #ccc;
+  overflow:auto;
+}

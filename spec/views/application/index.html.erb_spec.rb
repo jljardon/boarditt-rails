@@ -4,7 +4,7 @@ RSpec.describe "application/index", type: :view do
 
   context "Application" do
 
-    it 'loads the home page an login form' do
+    it 'loads the home page and login form' do
       visit "/"
       expect(page).to have_text("Username:")
       expect(page).to have_text("Password:")
@@ -14,8 +14,6 @@ RSpec.describe "application/index", type: :view do
       expect(page).to have_link 'Sign up', href: new_user_path
       expect(page.status_code).to eq(200)
     end
-
-
 
   end
 end
