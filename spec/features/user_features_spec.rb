@@ -15,7 +15,7 @@ describe 'Feature Test: User Login', type: :feature do
       visit '/users/1'
       expect(current_path).to eq('/')
       expect(page).to have_content("Sign up")
-    end
+  end
 end
 
 describe 'Feature Test: User Signout', type: :feature do

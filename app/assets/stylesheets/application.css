@@ -2,13 +2,13 @@
 *= require bulma
 */
 
-.is-section-content {
-  height: 80%;
-}
-
-body, html {
+html {
   height: 100%;
-   overflow-y: auto; 
+  background: url(https://imgur.com/YJTp55G.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .navbar-text {
@@ -17,32 +17,15 @@ body, html {
   text-shadow: #000 0 0 15px;
 }
 
-.is-inside-section-content {
-  height: 100%;
-}
-
-.bg {
-  background-image: url("https://imgur.com/YJTp55G.jpg");
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.terms {
-  height: calc(40% - (100px + 150px));
-}
 
 .terms-text {
-  /* border: 1px solid #ccc; */
-  height: 377px;
+  height: 405px;
   overflow: auto;
 }
 
 .sticky {
-  width:100%;
-  position:fixed;
-  bottom:0;
-  left:0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 }

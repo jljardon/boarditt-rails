@@ -23,7 +23,6 @@ RSpec.describe "User", type: :view do
       fill_in("user[password]", :with => "password")
       fill_in("user[password_confirmation]", :with => "password")
       click_button('Sign up')
-      # binding.pry
       expect(page).to have_content("Welcome test_user!")
       expect(page).to have_text("Your posts:")
       expect(current_path).to eq('/users/1')

@@ -21,42 +21,40 @@
 
   <body>
 
-    <div class="bg">
+    <nav class="navbar is-primary topNav">
+      <div class="container">
 
-      <nav class="navbar is-primary topNav">
-        <div class="container">
+        <div id="topNav" class="navbar-menu ">
+          <div class="navbar-start">
+            <div class="navbar-item navbar-text" id="logo">Boarditt-Rails</div>
+            <%= link_to "Home", root_path , { class: "navbar-item" } %>
+            <a class="navbar-item" href="blog.html">Account</a>
+            <a class="navbar-item" href="instaAlbum.html">Posts</a>
+            <a class="navbar-item" href="search.html">Search</a>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
 
-          <div id="topNav" class="navbar-menu ">
-            <div class="navbar-start">
-              <div class="navbar-item navbar-text" id="logo">Boarditt-Rails</div>
-              <%= link_to "Home", root_path , { class: "navbar-item" } %>
-              <a class="navbar-item" href="blog.html">Account</a>
-              <a class="navbar-item" href="instaAlbum.html">Posts</a>
-              <a class="navbar-item" href="search.html">Search</a>
-            </div>
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="field is-grouped">
-                  <p class="control">
+                  <%if logged_in? %>
+                    <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
+                      <span class="icon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      <span>Logout</span>
+                    </a>
+                  <%end%>
 
-                    <%if logged_in? %>
-                      <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
-                        <span class="icon">
-                          <i class="fa fa-user"></i>
-                        </span>
-                        <span>Logout</span>
-                      </a>
-                    <%end%>
-
-                  </p>
-                </div>
+                </p>
               </div>
             </div>
           </div>
         </div>
-      </nav>
-      <br>
-
+      </div>
+    </nav>
+    <br>
+    <div class="container" style="height: 110vh;">
       <div class="container">
 
         <div class="columns is-centered">
@@ -70,12 +68,12 @@
       </div>
 
     </div>
-
+<hr>
     <footer class="footer sticky">
       <div class="container">
         <div class="content has-text-centered">
           <p>
-            <strong>Boarditt-Rails</strong>
+            <strong>Boarditt</strong>
             by
             <a href="https://github.com/jljardon" target="_blank">Jose L. Jardon
               <span class="icon">
