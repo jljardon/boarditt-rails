@@ -20,12 +20,13 @@ RSpec.describe "User", type: :view do
       visit "/users/new"
       fill_in("user[email]", :with => "email@email.com")
       fill_in("user[username]", :with => "test_user")
-      fill_in("user[password]", :with => "pasword")
+      fill_in("user[password]", :with => "password")
       fill_in("user[password_confirmation]", :with => "password")
       click_button('Sign up')
-      expect(current_path).to eq('/users/1')
+      # binding.pry
       expect(page).to have_content("Welcome test_user!")
       expect(page).to have_text("Your posts:")
+      expect(current_path).to eq('/users/1')
     end
   end
 end

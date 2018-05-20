@@ -1,6 +1,7 @@
 module LoginHelper
 
   def user_login
+    visit '/'
     fill_in('user[username]', :with => "some_user")
     fill_in('user[password]', :with => "password")
     click_button('Login')
