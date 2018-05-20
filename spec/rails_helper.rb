@@ -51,7 +51,7 @@ RSpec.configure do |config|
   end
   # Added for route testing
   config.include Capybara::DSL
-  # config.include LoginHelper, :type => :feature
+  config.include LoginHelper, :type => :feature
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
