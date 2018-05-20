@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "application/index", type: :view do
 
   context "Application" do
-
+    let(:user) { User.create(username: 'some_guy', email: 'email@email.com', password: 'password') }
     it 'loads the home page and login form' do
       visit "/"
       expect(page).to have_text("Username:")
@@ -16,13 +16,13 @@ RSpec.describe "application/index", type: :view do
     end
 
     it "lets the user login and creates a session" do
-      let(:user) { User.create(username: 'some_guy', email: 'email@email.com', password: 'password') }
+
       visit "/"
       fill_in("user[username]", :with => user.username)
       fill_in("user[password]", :with => user.password)
       click_button('Login')
       expect(current_path).to eq("/users/#{user.id}")
-      expect(page).to have_content("Welcome #{user.name}")
+      expect(page).to have_content("Welcome #{user.username}")
       expect(page).to have_text("Your posts:")
       expect(page.get_rack_session_key('user_id')).to_not be_nil
     end

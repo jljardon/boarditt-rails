@@ -5,7 +5,7 @@
       <h1 class="title is-2">Welcome to Boarditt!</h1>
       <p>Boarditt is platform to share content with strangers.</p>
       <br>
-      <%= form_for @user do |f| %>
+      <%= form_for @user, url: login_path  do |f| %>
       <%= f.label 'Username:',class: 'subtitle is-5' %>
       <%= f.text_field :username , class:'input column'%>
       <br>
