@@ -15,5 +15,17 @@ RSpec.describe "application/index", type: :view do
       expect(page.status_code).to eq(200)
     end
 
+    it "lets the user login and creates a session" do
+      let(:user) { User.create(username: 'some_guy', email: 'email@email.com', password: 'password') }
+      visit "/"
+      fill_in("user[username]", :with => user.username)
+      fill_in("user[password]", :with => user.password)
+      click_button('Login')
+      expect(current_path).to eq("/users/#{user.id}")
+      expect(page).to have_content("Welcome #{user.name}")
+      expect(page).to have_text("Your posts:")
+      expect(page.get_rack_session_key('user_id')).to_not be_nil
+    end
+
   end
 end

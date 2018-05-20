@@ -27,7 +27,5 @@ RSpec.describe "User", type: :view do
       expect(page).to have_content("Welcome test_user!")
       expect(page).to have_text("Your posts:")
     end
-
-
   end
 end
