@@ -15,5 +15,17 @@ RSpec.describe "user/new", type: :view do
       expect(page).to have_button 'Sign up'
       expect(page.status_code).to eq(200)
     end
+
+    it "fills the form and creates a new user" do
+      visit "/users/new"
+      fill_in("user[email]", :with => "email@email.com")
+      fill_in("user[username]", :with => "test_user")
+      fill_in("user[password]", :with => "pasword")
+      fill_in("user[password_confirmation]", :with => "password")
+      click_button('Sign up')
+      expect(current_path).to eq('/users/1')
+      expect(page).to have_content("Welcome test_user!")
+      expect(page).to have_text("Your posts:")
+    end
   end
 end
