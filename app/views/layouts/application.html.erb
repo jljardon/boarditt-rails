@@ -29,7 +29,7 @@
           <div id="topNav" class="navbar-menu ">
             <div class="navbar-start">
               <div class="navbar-item navbar-text" id="logo">Boarditt-Rails</div>
-            <%= link_to "Home", root_path ,  { class: "navbar-item" } %>
+              <%= link_to "Home", root_path , { class: "navbar-item" } %>
               <a class="navbar-item" href="blog.html">Account</a>
               <a class="navbar-item" href="instaAlbum.html">Posts</a>
               <a class="navbar-item" href="search.html">Search</a>
@@ -39,17 +39,14 @@
                 <div class="field is-grouped">
                   <p class="control">
 
-                  <%if logged_in? %>
-                  <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
-                    <span class="icon">
-                      <i class="fa fa-user"></i>
-                    </span>
-                    <span>Logout</span>
-                  </a>
-                  <%end%>
-
-
-
+                    <%if logged_in? %>
+                      <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
+                        <span class="icon">
+                          <i class="fa fa-user"></i>
+                        </span>
+                        <span>Logout</span>
+                      </a>
+                    <%end%>
 
                   </p>
                 </div>
@@ -58,21 +55,43 @@
           </div>
         </div>
       </nav>
-  <br>
+      <br>
 
-<div class="container">
+      <div class="container">
 
+        <div class="columns is-centered">
+          <div class="column ">
+            <div class="box">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
 
-  <div class="columns is-centered">
-    <div class="column ">
-      <div class="box">
-        <%= yield %>
       </div>
-    </div>
-  </div>
-
-</div>
 
     </div>
+
+    <footer class="footer sticky">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Boarditt-Rails</strong>
+            by
+            <a href="https://github.com/jljardon" target="_blank">Jose L. Jardon <span class="icon"> <i class="fa fa-github"></i> </span></a> . The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
+            <p>
+              Icons from
+              <a href="http://fontawesome.io/" target="_blank">Font Awesome</a>.
+
+              Web fonts from
+              <a href="https://fonts.google.com/" target="_blank">Google</a>.
+
+            </p>
+
+          </p>
+        </div>
+      </div>
+    </footer>
+
   </body>
 </html>
