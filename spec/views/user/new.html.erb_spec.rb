@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "user/new", type: :view do
+RSpec.describe "User", type: :view do
   context "Creates new user" do
     it 'loads the new user page and sign in form' do
       visit "/users/new"
@@ -27,5 +27,7 @@ RSpec.describe "user/new", type: :view do
       expect(page).to have_content("Welcome test_user!")
       expect(page).to have_text("Your posts:")
     end
+
+
   end
 end
