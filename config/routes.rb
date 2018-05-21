@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
-  get 'posts/new'
-  post 'posts/create'
-  get 'posts/edit'
-  patch 'posts/update'
-  delete 'posts/destroy'
   post '/login' => 'sessions#create'
-  delete "/logout", to: "sessions#destroy"
-
-  # resources :users
+  delete '/logout', to: 'sessions#destroy'
 
   resources :users do
-   resources :posts
- end
+    resources :posts, only: [:index, :show, :new, :edit]
+  end
 
+  resources :posts
   root to: 'application#home'
 end

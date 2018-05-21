@@ -6,7 +6,7 @@ RSpec.describe "Post", type: :view do
     it 'loads the new post page and create post form' do
       @User = create_standard_user
       user_login
-      visit "/posts/new"
+      visit "/users/#{@user.id}/posts/new"
       expect(page).to have_text("Title:")
       expect(page).to have_text("Content:")
       expect(page).to have_field 'post[title]'
@@ -18,7 +18,7 @@ RSpec.describe "Post", type: :view do
     it "fills the form and creates a new post" do
       @user = create_standard_user
       user_login
-      visit "/posts/new"
+      visit "/users/#{@user.id}/posts/new"
       fill_in("post[title]", :with => "Post title")
       fill_in("post[content]", :with => "Post content")
       click_button('Post')

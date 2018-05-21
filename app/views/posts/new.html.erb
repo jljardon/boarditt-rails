@@ -3,7 +3,7 @@
 
   <div class="box">
 
-    <%= form_for @post, url: posts_create_path do |f| %>
+    <%= form_for @post  do |f| %>
     <%= f.hidden_field :user_id %>
     <%= f.label 'Title:',class: 'subtitle is-5' %>
     <%= f.text_field :title , {class:'input', placeholder:"Post title"}%>
