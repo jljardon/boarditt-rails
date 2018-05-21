@@ -6,6 +6,8 @@ RSpec.describe "Post", type: :view do
     it 'loads the edit post page and edit post form' do
       @user = create_standard_user
       @post = create_post
+      user_login
+      # binding.pry
       visit "/users/#{@user.id}/posts/#{@post.id}/edit"
       expect(page).to have_text("Title:")
       expect(page).to have_text("Content:")
@@ -18,6 +20,7 @@ RSpec.describe "Post", type: :view do
     it "fills the form and updates a post" do
       @user = create_standard_user
       @post = create_post
+      user_login
       visit "/users/#{@user.id}/posts/#{@post.id}/edit"
       fill_in("post[title]", :with => "Some other title")
       fill_in("post[content]", :with => "Some other content")
@@ -27,12 +30,5 @@ RSpec.describe "Post", type: :view do
       expect(page).to have_content("Some other title")
       expect(page).to have_content("Some other content")
     end
-
-    # it 'prevents user from viewing posts page and redirects to home page if not logged in' do
-    #     @user = create_standard_user
-    #     visit "/users/#{@user.id}/posts/new"
-    #     expect(current_path).to eq('/')
-    #     expect(page).to have_content("Sign up")
-    # end
   end
 end
