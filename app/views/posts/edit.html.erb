@@ -1,17 +1,2 @@
-
-<h1 class="title is-2">Edit post</h1>
-<div class="box">
-  <%= form_for @post  do |f| %>
-  <%= f.hidden_field :user_id %>
-  <%= f.label 'Title:',class: 'subtitle is-5' %>
-  <%= f.text_field :title , {class:'input', placeholder:"Post title"}%>
-  <br>
-  <br>
-  <%= f.label 'Content:',class: 'subtitle is-5' %>
-
-  <%= f.text_area(:content,{size: '50x10', class: 'textarea', placeholder:'Post content ...'}) %>
-  <br>
-  <%= f.submit "Post", class:"button is-light"%>
-<% end %>
-
-</div>
+<h2 class="title is-3">Edit post</h2>
+<%= render "form" %>
