@@ -17,4 +17,14 @@
 </div>
 <div class="box">
   <h2 class="subtitle is-3">Your posts:</h2>
+  <%@user.posts.each do |post|%>
+  <p><%= link_to post.title, user_post_path(post.user,post.id) %></p>
+  <%end%>
+</div>
+
+<div class="box">
+  <h2 class="subtitle is-3">Your comments:</h2>
+  <%@user.comments.each do |comment|%>
+  <p><%= comment.content %></p>
+  <%end%>
 </div>

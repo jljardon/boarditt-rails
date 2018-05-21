@@ -1,11 +1,17 @@
 <div class="box">
-  <h1 class="title is-2">Post by <%=@post.user.username%></h1>
-  <div class="box">
-    <h2 class="subtitle is-4"><%=@post.title%></h2>
-    <hr>
-    <p><%=@post.content%></p>
+  <h1 class="title is-2">Post by
+    <%=@post.user.username%></h1>
+      <hr>
+  <div class="columns">
+    <div class="column is-half">
+      <div class="box">
+        <h2 class="subtitle is-4"><%=@post.title%></h2>
+
+
+        <figure class="image">
+          <img src="<%=@post.content%>">
+        </figure>
+      </div>
+    </div>
   </div>
-
-
-
 </div>
