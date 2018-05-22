@@ -1,22 +1,44 @@
 <div class="box">
   <h1 class="title is-2">Post by
     <%=@post.user.username%></h1>
-      <hr>
+  <hr>
   <div class="columns">
     <div class="column is-half">
       <div class="box">
         <h2 class="subtitle is-4"><%=@post.title%></h2>
 
         <%if @post.content.include? "http://"%>
-        <figure class="image">
-          <img src="<%=@post.content%>">
-        </figure>
+          <figure class="image">
+            <img src="<%=@post.content%>">
+          </figure>
         <%else%>
-        <hr>
-        <p><%=@post.content%></p>
+          <hr>
+          <p><%=@post.content%></p>
         <%end%>
-        <!-- link to comment -->
+
       </div>
     </div>
+
   </div>
+  <!-- <hr> -->
+  <small>
+    <p><%= link_to "Comment", new_post_comment_path(@post.id)%>
+      |
+      <%= link_to "Edit", edit_user_post_path(@post.user,@post)%></p>
+  </small>
+  <hr>
+  <h1 class="subtitle is-4">Comments</h1>
+
+  <%@post.comments.each do |comment|%>
+    <div class="box">
+      <p><%= comment.content%></p>
+      <small>
+        <p class="is-pulled-right">By user
+          <%=link_to comment.user.username, user_path(comment.user) %>
+          <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small> 
+        </p>
+      </small>
+    </div>
+  <%end%>
+
 </div>

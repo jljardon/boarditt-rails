@@ -21,8 +21,8 @@ RSpec.describe "Comment", type: :view do
       visit "/posts/#{@post.id}/comments/new"
       fill_in("comment[content]", :with => "Comment content")
       click_button('Comment')
-      expect(current_path).to eq("/users/#{@user.id}/posts/#{@post}")
-      expect(page).to have_content("comment content")
+      expect(current_path).to eq("/users/#{@user.id}/posts/#{@post.id}")
+      expect(page).to have_content("Comment content")
     end
 
   end

@@ -1,0 +1,11 @@
+<div class="box">
+  <%= form_for @comment do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :post_id %>
+  <%= f.label 'Content:',class: 'subtitle is-5' %>
+
+  <%= f.text_area(:content,{size: '40x10', class: 'textarea', placeholder:'Post content.'}) %>
+  <br>
+  <%= f.submit "Comment", class:"button is-light"%>
+<% end %>
+</div>
