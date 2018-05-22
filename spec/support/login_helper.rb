@@ -11,6 +11,10 @@ module LoginHelper
     @post = Post.create(title: "A post", content: "Content of the post", user_id: 1)
   end
 
+  def create_comment
+    @comment = Comment.create(content: "Comment content", user_id: 1, post_id: 1)
+  end
+
 
   def create_standard_user
     @user = User.create(

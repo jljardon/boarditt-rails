@@ -24,8 +24,20 @@ html {
 }
 
 .sticky {
+  width:100%;
+ padding:20px;
+ padding-bottom:16px;
+ color:black;
+ font-size:14px;
+ text-align:center;
+ position:fixed;    /*Here's what sticks it*/
+ bottom:0;          /*to the bottom of the body*/
+ left:0;
+}
+
+.sticky-navbar {
   width: 100%;
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
 }

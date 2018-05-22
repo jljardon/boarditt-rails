@@ -7,10 +7,15 @@
       <div class="box">
         <h2 class="subtitle is-4"><%=@post.title%></h2>
 
-
+        <%if @post.content.include? "http://"%>
         <figure class="image">
           <img src="<%=@post.content%>">
         </figure>
+        <%else%>
+        <hr>
+        <p><%=@post.content%></p>
+        <%end%>
+        <!-- link to comment -->
       </div>
     </div>
   </div>
