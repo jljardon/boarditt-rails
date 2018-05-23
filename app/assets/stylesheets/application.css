@@ -41,3 +41,8 @@ html {
   top: 0;
   left: 0;
 }
+
+a.facebook:before {
+    font-family: FontAwesome;
+    content: "\f082";
+}

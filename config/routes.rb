@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/auth/facebook/callback' => 'sessions#create'
   post '/login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
