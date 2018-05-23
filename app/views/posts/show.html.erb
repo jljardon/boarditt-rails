@@ -21,11 +21,36 @@
 
   </div>
   <!-- <hr> -->
-  <small>
-    <p><%= link_to "Comment", new_post_comment_path(@post.id)%>
-      |
-      <%= link_to "Edit", edit_user_post_path(@post.user,@post)%></p>
-  </small>
+
+
+
+  <div class="column is-2">
+    <div class="control is-1">
+      <div class="tags has-addons">
+        <span class="tag is-success">
+          <label class="radio">
+            <input type="radio" name="question">
+            <i class="fas fa-arrow-alt-circle-up" style="font-size:20px"></i>
+            <!-- &nbsp;&uarr;&nbsp; -->
+          </label>
+        </span>
+        <span class="tag is-danger">
+          <label class="radio">
+
+            <input name="question" class="" type="radio" >
+          <i class="is-active fas fa-arrow-alt-circle-down" style="font-size:20px"></i>
+          <!-- &nbsp;  &darr;&nbsp; -->
+
+          </label>
+        </span>
+      </div>
+    </div>
+
+    <small>
+      <p><%= link_to "Comment  ", new_post_comment_path(@post.id)%>  &nbsp;|&nbsp;  <%= link_to "  Edit", edit_user_post_path(@post.user,@post)%></p>
+    </small>
+  </div>
+
   <hr>
   <h1 class="subtitle is-4">Comments</h1>
 
@@ -35,7 +60,7 @@
       <small>
         <p class="is-pulled-right">By user
           <%=link_to comment.user.username, user_path(comment.user) %>
-          <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small> 
+          <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small>
         </p>
       </small>
     </div>
