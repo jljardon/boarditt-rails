@@ -44,5 +44,12 @@ html {
 
 a.facebook:before {
     font-family: FontAwesome;
+    color: rgb(59, 89, 152);
     content: "\f082";
+}
+
+a.google::before{
+  font-family: FontAwesome;
+  content: "\f0d4";
+  color: rgb(219, 68, 55);
 }

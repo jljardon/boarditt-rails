@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
   def create
-    if auth['uid']
+    if auth
       @user = User.find_by(email: auth['info']['email'], username: auth['info']['name'])
-      unless @user
-        @user = User.create(username: auth['info']['name'],
+      @user ||= User.create(username: auth['info']['name'],
                             email:  auth['info']['email'],
                             password:  SecureRandom.urlsafe_base64)
-      end
       session[:user_id] = @user.id
       redirect_to user_path(@user), notice: 'Welcome to boarditt!'
     else

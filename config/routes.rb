@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get '/auth/facebook/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'sessions#create'
+  # get '/auth/google_oauth2/callback' => 'sessions#create'
   post '/login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 

@@ -27,10 +27,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-#Facebook authentication
+#Facebook authentication and google
 gem 'omniauth'
-
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 gem 'dotenv-rails'
 gem 'thin'

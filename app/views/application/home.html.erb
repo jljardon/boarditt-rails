@@ -3,7 +3,6 @@
     <div class="box">
 
       <h1 class="title is-2">Welcome to Boarditt!</h1>
-      <p>Boarditt is platform to share content with strangers.</p>
       <br>
       <%= form_for @user, url: login_path do |f| %>
       <%= f.label 'Username:',class: 'subtitle is-5' %>
@@ -14,6 +13,7 @@
       <br>
 
       <%= f.submit "Login", class:"button is-light"%>
+      <br>
     <% end %>
   </div>
 </div>
@@ -23,9 +23,9 @@
 
     <div class="box">
       <p class="title is-3">Don't have an account?</p>
-      <br>
-      <p class="subtitle is-3">
-        <%=link_to "Sign up", new_user_path%>
+<p></p>
+      <p class="subtitle is-4">
+      <strong> <%=link_to "Sign up", new_user_path%></strong>
       </p>
     </div>
     <hr>
@@ -33,8 +33,9 @@
 
       <h1 class="title is-3">Or login with:</h1>
       <p></p>
-      <h3 class="subtitle is-4"><%= link_to" Facebook ", '/auth/facebook',{class: "facebook"}%>
-        | Google</h3>
+      <h3 class="subtitle is-3"><%= link_to" Facebook", '/auth/facebook',{class: "facebook"}%>
+       &nbsp;  | &nbsp; <%= link_to " Google", '/auth/google_oauth2',{class: "google"}%>
+      </h3>
     </div>
   </div>
 </div>
