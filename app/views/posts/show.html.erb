@@ -16,54 +16,50 @@
           <p><%=@post.content%></p>
         <%end%>
 
+        <p class="is-pulled-right">
+          <small>[
+            <%= link_to "Edit post", edit_user_post_path(@post.user,@post)%>
+            &nbsp;|&nbsp; Delete Post ]
+          </small>
+        </p>
       </div>
     </div>
-
   </div>
-  <!-- <hr> -->
 
+  <%= form_for @vote do |f| %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :post_id %>
+  <span class="tag is-link">
+    <%= label :like, 'Up', class:"tag is-link" %>&nbsp;&nbsp;&nbsp;
+    <%= f.radio_button :like, true, {id: "Upvote"} %>
 
+  </span>
 
-  <div class="column is-2">
-    <div class="control is-1">
-      <div class="tags has-addons">
-        <span class="tag is-success">
-          <label class="radio">
-            <input type="radio" name="question">
-            <i class="fas fa-arrow-alt-circle-up" style="font-size:20px"></i>
-            <!-- &nbsp;&uarr;&nbsp; -->
-          </label>
-        </span>
-        <span class="tag is-danger">
-          <label class="radio">
+  <span class="tag is-danger">
+    <label >
+      <%= label :like, 'Down' %>&nbsp;
+      <%= f.radio_button :like, false, {id: "Downvote"}%>
+    </label>
+  </span>
+  <small> <%= f.submit "Vote"%></small>
+<% end %>
 
-            <input name="question" class="" type="radio" >
-          <i class="is-active fas fa-arrow-alt-circle-down" style="font-size:20px"></i>
-          <!-- &nbsp;  &darr;&nbsp; -->
+<hr>
+<p class="is-pulled-right">
+  [<%= link_to "Add Comment ", new_post_comment_path(@post.id)%>]
+</p>
+<h1 class="subtitle is-4">Comments</h1>
 
-          </label>
-        </span>
-      </div>
-    </div>
-
+<%@post.comments.each do |comment|%>
+  <div class="box">
+    <p><%= comment.content%></p>
     <small>
-      <p><%= link_to "Comment  ", new_post_comment_path(@post.id)%>  &nbsp;|&nbsp;  <%= link_to "  Edit", edit_user_post_path(@post.user,@post)%></p>
+      <p class="is-pulled-right">By user
+        <%=link_to comment.user.username, user_path(comment.user) %>
+        <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small>
+      </p>
     </small>
   </div>
-
-  <hr>
-  <h1 class="subtitle is-4">Comments</h1>
-
-  <%@post.comments.each do |comment|%>
-    <div class="box">
-      <p><%= comment.content%></p>
-      <small>
-        <p class="is-pulled-right">By user
-          <%=link_to comment.user.username, user_path(comment.user) %>
-          <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small>
-        </p>
-      </small>
-    </div>
-  <%end%>
+<%end%>
 
 </div>

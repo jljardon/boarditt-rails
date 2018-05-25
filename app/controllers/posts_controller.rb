@@ -17,7 +17,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @vote = Vote.find_or_initialize_by(user_id: current_user.id, post_id: params[:id] )
+  end
 
   def edit; end
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'votes/create'
   get '/auth/:provider/callback' => 'sessions#create'
-  # get '/auth/google_oauth2/callback' => 'sessions#create'
+
   post '/login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
@@ -11,6 +12,8 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+
+  resources :votes, only: [:create, :update]
 
   resources :comments
   resources :posts

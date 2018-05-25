@@ -32,10 +32,6 @@ RSpec.describe Vote, type: :model do
 
     let(:post) { Post.new(valid_post_attrs) }
 
-    it "is invalid without like" do
-      vote = Vote.new(user: user, post: post)
-      expect(vote).to be_invalid
-    end
 
     it "is invalid without user" do
       vote = Vote.new(like: true, post: post)
