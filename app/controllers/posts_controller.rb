@@ -2,6 +2,10 @@ class PostsController < ApplicationController
   before_action :require_logged_in
   before_action :set_post, only: %i[show edit update]
 
+  def index
+    @posts = Post.all
+  end
+
   def new
     @post = Post.new(user_id: current_user.id)
   end

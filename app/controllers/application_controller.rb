@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :require_logged_in, except: %i[new create home]
 
   def home
-    @user = User.new
+    if logged_in?
+      redirect_to posts_path
+    else
+      @user = User.new
+    end
   end
 
   def logged_in?

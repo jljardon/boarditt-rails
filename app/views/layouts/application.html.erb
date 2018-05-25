@@ -28,10 +28,14 @@
         <div id="topNav" class="navbar-menu ">
           <div class="navbar-start">
             <div class="navbar-item navbar-text" id="logo">Boarditt-Rails</div>
-            <%= link_to "Home", root_path , { class: "navbar-item" } %>
-            <a class="navbar-item" href="blog.html">Account</a>
-            <a class="navbar-item" href="instaAlbum.html">Posts</a>
+            <%if logged_in?%>
+            <%= link_to "All posts", posts_path , { class: "navbar-item" } %>
+            <%= link_to "Account", user_path(current_user) , { class: "navbar-item" } %>
+            <!-- <a class="navbar-item" href="blog.html">Account</a> -->
+            <!-- <a class="navbar-item" href="instaAlbum.html">Posts</a> -->
+            <!-- <%= link_to "All posts", posts_path , { class: "navbar-item" } %> -->
             <a class="navbar-item" href="search.html">Search</a>
+            <%end%>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
