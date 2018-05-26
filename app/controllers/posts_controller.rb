@@ -43,9 +43,8 @@ class PostsController < ApplicationController
 
   def destroy
     if user_is_owner(@post.user)
-      Post.find(params[:id]).destroy
+      @post.destroy
       redirect_to user_path(current_user)
-
     else
       redirect_to root_path
     end

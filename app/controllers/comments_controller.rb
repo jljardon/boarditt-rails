@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :require_logged_in
-  before_action :set_comment, only: %i[edit update]
+  before_action :set_comment, only: %i[edit update destroy]
 
   def new
     @comment = Comment.new(post_id: params[:post_id], user_id: current_user.id)
@@ -31,7 +31,15 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    if user_is_owner(@comment.user)
+      @comment.destroy
+      redirect_to user_path(current_user)
+    else
+      redirect_to root_path
+    end
   end
+
+  private
 
   def comment_params
     params.require(:comment).permit(:content, :user_id, :post_id)

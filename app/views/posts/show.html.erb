@@ -62,7 +62,11 @@
       <p class="is-pulled-right">By user
         <%=link_to comment.user.username, user_path(comment.user) %>
         <% if user_is_owner(comment.user)%>
-          <small>[<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]</small>
+          <small>
+            [<%= link_to "Edit", edit_post_comment_path(@post,comment) %>]
+            |
+            [<%= link_to "Delete", comment, method: :delete, data: { confirm: "Do you really want to delete this comment?" } %>]
+          </small>
         <%end%>
       </p>
     </small>

@@ -59,7 +59,7 @@ describe 'Feature Test: Delete comment', type: :feature do
     user_login
     visit "/users/#{@user.id}/posts/#{@post.id}"
     choose('Upvote')
-    click_link('Delete comment')
+    click_link('Delete')
     expect(@post.comments.count).to eq(0)
   end
 end
