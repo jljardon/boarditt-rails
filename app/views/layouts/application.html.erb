@@ -42,6 +42,7 @@
                 <p class="control">
 
                   <%if logged_in? %>
+                  <p class="navbar-item navbar-text"><%= current_user.username%></p>
                     <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
                       <span class="icon">
                         <i class="fa fa-user"></i>

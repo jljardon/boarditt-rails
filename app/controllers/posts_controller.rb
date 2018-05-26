@@ -22,42 +22,39 @@ class PostsController < ApplicationController
   end
 
   def show
-    @vote = Vote.find_or_initialize_by(user_id: current_user.id, post_id: params[:id] )
+    @vote = Vote.find_or_initialize_by(user_id: current_user.id, post_id: params[:id])
   end
 
   def edit; end
 
   def update
-    not_user_post?
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully updated.' }
-      else
-        format.html { render :edit }
+    if user_is_owner(@post.user)
+      respond_to do |format|
+        if @post.update(post_params)
+          format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully updated.' }
+        else
+          format.html { render :edit }
+        end
       end
+    else
+      redirect_to root_path
     end
   end
 
   def destroy
-    not_user_post?
-    Post.find(params[:id]).destroy
-    redirect_to user_path(current_user)
+    if user_is_owner(@post.user)
+      Post.find(params[:id]).destroy
+      redirect_to user_path(current_user)
+
+    else
+      redirect_to root_path
+    end
   end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
-  end
-
-  def not_user_post?
-    # binding.pry
-
-   redirect_to root_path && return if current_user != @post.user
-
-    # if current_user != @post.user
-    #   redirect_to root_path
-    # end
   end
 
   def set_post
