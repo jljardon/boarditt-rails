@@ -2,7 +2,9 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
 
-  belongs_to :user
-  has_many :comments
+  # belongs_to :user
   has_many :votes
+  has_many :users, through: :votes
+  has_many :comments
+
 end

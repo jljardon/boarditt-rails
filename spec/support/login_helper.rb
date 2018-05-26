@@ -8,7 +8,7 @@ module LoginHelper
   end
 
   def create_post
-    @post = Post.create(title: "A post", content: "Content of the post", user_id: 1)
+    @post = Post.create(title: "A post", content: "Content of the post")
   end
 
   def create_comment
