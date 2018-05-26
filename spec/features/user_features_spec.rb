@@ -50,3 +50,16 @@ describe 'Feature Test: Delete post', type: :feature do
     expect(@user.posts.count).to eq(0)
   end
 end
+
+describe 'Feature Test: Delete comment', type: :feature do
+  it 'deletes a new_post_comment_path' do
+    @user = create_standard_user
+    @post = create_post
+    @comment = create_comment
+    user_login
+    visit "/users/#{@user.id}/posts/#{@post.id}"
+    choose('Upvote')
+    click_link('Delete comment')
+    expect(@post.comments.count).to eq(0)
+  end
+end
