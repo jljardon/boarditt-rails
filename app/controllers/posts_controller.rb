@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_logged_in
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @posts = Post.all
@@ -28,6 +28,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
+    not_user_post?
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully updated.' }
@@ -37,12 +38,26 @@ class PostsController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    not_user_post?
+    Post.find(params[:id]).destroy
+    redirect_to user_path(current_user)
+  end
 
   private
 
   def post_params
     params.require(:post).permit(:title, :content, :user_id)
+  end
+
+  def not_user_post?
+    # binding.pry
+
+   redirect_to root_path && return if current_user != @post.user
+
+    # if current_user != @post.user
+    #   redirect_to root_path
+    # end
   end
 
   def set_post

@@ -6,7 +6,6 @@ describe 'Feature Test: User Login', type: :feature do
     user_login
     expect(current_path).to eq("/users/#{@user.id}")
     expect(page).to have_content("Welcome #{@user.username}")
-    expect(page).to have_text('Your posts:')
     expect(page.get_rack_session_key('user_id')).to_not be_nil
   end
 
@@ -37,5 +36,17 @@ describe 'Feature Test: User vote', type: :feature do
     choose('Upvote')
     click_button 'Vote'
     expect(@post.votes.count).to eq(1)
+  end
+end
+
+describe 'Feature Test: Delete post', type: :feature do
+  it 'deletes a post' do
+    @user = create_standard_user
+    @post = create_post
+    user_login
+    visit "/users/#{@user.id}/posts/#{@post.id}"
+    choose('Upvote')
+    click_link('Delete post')
+    expect(@user.posts.count).to eq(0)
   end
 end

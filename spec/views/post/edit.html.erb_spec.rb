@@ -7,7 +7,6 @@ RSpec.describe "Post", type: :view do
       @user = create_standard_user
       @post = create_post
       user_login
-      # binding.pry
       visit "/users/#{@user.id}/posts/#{@post.id}/edit"
       expect(page).to have_text("Title:")
       expect(page).to have_text("Content:")

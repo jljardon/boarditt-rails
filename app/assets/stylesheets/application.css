@@ -3,7 +3,7 @@
 */
 
 html {
-  height: 100%;
+  /* height: 100%; */
   background: url(https://imgur.com/YJTp55G.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -17,6 +17,7 @@ html {
   text-shadow: #000 0 0 15px;
 }
 
+.page{ height: 150%;}
 
 .terms-text {
   height: 405px;
@@ -30,8 +31,8 @@ html {
  color:black;
  font-size:14px;
  text-align:center;
- position:fixed;    /*Here's what sticks it*/
- bottom:0;          /*to the bottom of the body*/
+ position:fixed;
+ bottom:0;
  left:0;
 }
 

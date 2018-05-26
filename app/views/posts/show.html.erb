@@ -7,7 +7,7 @@
       <div class="box">
         <h2 class="subtitle is-4"><%=@post.title%></h2>
 
-        <%if @post.content.include? "http://"%>
+        <%if (@post.content.include? "http://" or @post.content.include? "https://")%>
           <figure class="image">
             <img src="<%=@post.content%>">
           </figure>
@@ -19,7 +19,7 @@
         <p class="is-pulled-right">
           <small>[
             <%= link_to "Edit post", edit_user_post_path(@post.user,@post)%>
-            &nbsp;|&nbsp; Delete Post ]
+            &nbsp;|&nbsp; <%= link_to "Delete post", @post, method: :delete, data: { confirm: "Do you really want to delete this post?" } %> ]
           </small>
         </p>
       </div>
