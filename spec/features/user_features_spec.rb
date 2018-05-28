@@ -52,7 +52,7 @@ describe 'Feature Test: Delete post', type: :feature do
 end
 
 describe 'Feature Test: Delete comment', type: :feature do
-  it 'deletes a new_post_comment_path' do
+  it 'deletes a comment' do
     @user = create_standard_user
     @post = create_post
     @comment = create_comment

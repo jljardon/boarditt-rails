@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-  get 'votes/create'
   get '/auth/:provider/callback' => 'sessions#create'
 
   post '/login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users do
+  resources :users, only: [:new, :create, :show] do
     resources :posts, only: [:index, :show, :new, :edit]
   end
 
   resources :posts do
-    resources :comments
+    resources :comments, only: [:new,:create, :edit, :update, :destroy]
   end
 
   resources :votes, only: [:create, :update]
 
-  resources :comments
-  resources :posts
+  resources :comments, only: [:new,:create, :edit, :update, :destroy]
   root to: 'application#home'
 end
