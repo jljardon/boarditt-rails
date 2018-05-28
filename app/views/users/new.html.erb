@@ -3,6 +3,24 @@
     <div class="box">
       <h2 class="title is-3">Create account</h2>
       <%= form_for @user do |f| %>
+      <% if @user.errors.any? %>
+        <div class="message is-danger">
+
+          <div class="message-header">
+            There were some errors:
+          </div>
+          <div id="error_explanation" class="message">
+            <h2></h2>
+
+            <ul class="message-body">
+              <% @user.errors.full_messages.each do |message| %>
+                <li ><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+
       <%= f.label 'Email:',class: 'subtitle is-5' %>
       <%= f.text_field :email , {class:'input', placeholder:"example@example.com"}%>
       <br>

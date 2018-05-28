@@ -13,7 +13,13 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to user_path(@user), notice: 'Welcome back to boarditt!'
       else
-        redirect_to root_path
+        if !@user
+          flash[:alert] = "Username not found."
+          redirect_to root_path
+        else
+          flash[:alert] = "Incorrect password."
+          redirect_to root_path
+        end
       end
     end
   end
