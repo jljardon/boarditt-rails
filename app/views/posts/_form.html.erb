@@ -1,5 +1,24 @@
 <div class="box">
   <%= form_for @post do |f| %>
+
+  <% if @post.errors.any? %>
+    <div class="message is-danger">
+
+      <div class="message-header">
+        There were some errors:
+      </div>
+      <div id="error_explanation" class="message">
+        <h2></h2>
+
+        <ul class="message-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <li ><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
   <%= f.hidden_field :user_id %>
   <%= f.label 'Title:',class: 'subtitle is-5' %>
   <%= f.text_field :title , {class:'input', placeholder:"Post title"}%>

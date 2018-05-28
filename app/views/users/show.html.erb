@@ -1,13 +1,21 @@
-<h1 class="title is-2">Welcome
-  <%=@user.username%>!</h1>
+<%if @user.id == current_user.id%>
+  <h1 class="title is-2">Welcome
+    <%=@user.username%>!</h1>
+<%else%>
+  <h1 class="title is-2">
+    <%=@user.username%>
+    user profile</h1>
+<%end%>
 
 <div class="columns is-multiline">
-  <div class="column">
-    <div class="box">
-      <h2 class="subtitle is-3">
-        <%= link_to "Create new post", new_user_post_path(@user) %></h2>
+  <%if @user.id == current_user.id%>
+    <div class="column">
+      <div class="box">
+        <h2 class="subtitle is-3">
+          <%= link_to "Create new post", new_user_post_path(@user) %></h2>
+      </div>
     </div>
-  </div>
+  <%end%>
   <div class="column">
     <div class="box">
       <h2 class="subtitle is-3">Karma - Karma points</h2>
@@ -15,19 +23,74 @@
     </div>
   </div>
 </div>
+
 <%if @user.posts.count > 0%>
   <div class="box">
-    <h2 class="subtitle is-3">Your posts:</h2>
-    <%@user.posts.each do |post|%>
-      <p><%= link_to post.title, user_post_path(post.user,post.id) %></p>
-    <%end%>
+    <div class="container">
+      <div class="columns is-multiline">
+        <div class="column is half">
+
+          <h2 class="subtitle is-3">User posts:</h2>
+
+          <%@user.posts.each do |post|%>
+            <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %>
+
+              <% if user_is_owner(post.user)%>
+                <small>
+                  <small>- [
+                    <%= link_to "Edit post", edit_user_post_path(post.user,post)%>
+                    &nbsp;|&nbsp;
+                    <%= link_to "Delete post", post, method: :delete, data: { confirm: "Do you really want to delete this post?" } %>
+                    ]
+                  </small>
+                </small>
+              <%end%>
+            </p>
+          <%end%>
+        <%end%>
+
+      </div>
+      <div class="column is half">
+        <%if @user.voted_posts.count > 0%>
+
+          <h2 class="subtitle is-3">Posts user has voted on:</h2>
+          <%@user.voted_posts.each do |post|%>
+            <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %></p>
+          <%end%>
+        </div>
+      <%end%>
+    </div>
   </div>
-<%end%>
+</div>
+
 <%if @user.comments.count > 0%>
   <div class="box">
-    <h2 class="subtitle is-3">Your comments:</h2>
-    <%@user.comments.each do |comment|%>
-      <p><%= comment.content %></p>
+    <div class="columns">
+      <div class="column is-half">
+
+        <h2 class="subtitle is-3">User comments:</h2>
+        <%@user.comments.each do |comment|%>
+          <p><%= comment.content %></p>
+          <% if user_is_owner(comment.user)%>
+            <small>
+              [<%= link_to "Edit", edit_post_comment_path(comment.post,comment) %>] | [<%= link_to "Delete", comment, method: :delete, data: { confirm: "Do you really want to delete this comment?" } %>]
+            </small>
+          <%end%>
+          <hr>
+        <%end%>
+      </div>
+    <%end%>
+
+    <%if @user.commented_posts.count > 0%>
+      <div class="column is-half">
+
+        <h2 class="subtitle is-3">Posts user has commented on:</h2>
+        <%@user.commented_posts.uniq.each do |commented_post|%>
+          <p><%= link_to commented_post.title, user_post_path(commented_post.user,commented_post.id) %></p>
+        <%end%>
+
+      </div>
     <%end%>
   </div>
-<%end%>
+
+</div>

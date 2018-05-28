@@ -6,12 +6,12 @@ class SessionsController < ApplicationController
                             email:  auth['info']['email'],
                             password:  SecureRandom.urlsafe_base64)
       session[:user_id] = @user.id
-      redirect_to user_path(@user), notice: 'Welcome to boarditt!'
+      redirect_to user_path(@user)
     else
       @user = User.find_by(username: params[:user][:username])
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
-        redirect_to user_path(@user), notice: 'Welcome back to boarditt!'
+        redirect_to user_path(@user)
       else
         if !@user
           flash[:alert] = "Username not found."

@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
-        format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully created.' }
+        format.html { redirect_to user_post_path(@post.user, @post) }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     if user_is_owner(@post.user)
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to user_post_path(@post.user, @post), notice: 'Post was successfully updated.' }
+          format.html { redirect_to user_post_path(@post.user, @post)}
         else
           format.html { render :edit }
         end

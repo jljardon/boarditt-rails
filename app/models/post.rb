@@ -6,5 +6,6 @@ class Post < ApplicationRecord
   has_many :votes
   has_many :voters, through: :votes ,  source: :user, foreign_key: "user_id"
   has_many :comments
+  has_many :commenters, through: :comments ,  source: :user, foreign_key: "user_id"
 
 end
