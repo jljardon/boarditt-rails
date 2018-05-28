@@ -13,13 +13,16 @@
       <div class="box">
         <h2 class="subtitle is-3">
           <%= link_to "Create new post", new_user_post_path(@user) %></h2>
+
       </div>
+
     </div>
   <%end%>
   <div class="column">
     <div class="box">
-      <h2 class="subtitle is-3">Karma - Karma points</h2>
-
+      <small class="is-pulled-right">**(upvotes - downvotes) in all users' posts .</small>
+      <p class="subtitle is-3">Karma -
+        <%=@user.votes.group(:like).count.values_at(true)[0].to_i - @user.votes.group(:like).count.values_at(false)[0].to_i%></p>
     </div>
   </div>
 </div>
