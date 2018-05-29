@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # raise.params.inspect
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
@@ -32,7 +31,7 @@ class PostsController < ApplicationController
     if user_is_owner(@post.user)
       respond_to do |format|
         if @post.update(post_params)
-          format.html { redirect_to user_post_path(@post.user, @post)}
+          format.html { redirect_to user_post_path(@post.user, @post) }
         else
           format.html { render :edit }
         end
@@ -54,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id, votes_attributes: [:like, :user])
+    params.require(:post).permit(:title, :content, :user_id, votes_attributes: %i[like user])
   end
 
   def set_post

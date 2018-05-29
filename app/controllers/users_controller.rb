@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def index
     @users = User.top_3_posters
   end

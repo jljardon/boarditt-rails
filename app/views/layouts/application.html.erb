@@ -31,9 +31,9 @@
           <div class="navbar-start">
             <%= link_to "Boarditt-Rails", root_path , { class: "navbar-item navbar-text" } %>
             <%if logged_in?%>
-            <%= link_to "All posts", posts_path , { class: "navbar-item" } %>
             <%= link_to "Account", user_path(current_user) , { class: "navbar-item" } %>
-            <a class="navbar-item" href="search.html">Search</a>
+            <%= link_to "All posts", posts_path , { class: "navbar-item" } %>
+            <%= link_to "Top 3", users_path , { class: "navbar-item" } %>
             <%end%>
           </div>
           <div class="navbar-end">

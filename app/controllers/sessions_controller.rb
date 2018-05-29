@@ -14,10 +14,10 @@ class SessionsController < ApplicationController
         redirect_to user_path(@user)
       else
         if !@user
-          flash[:alert] = "Username not found."
+          flash[:alert] = 'Username not found.'
           redirect_to root_path
         else
-          flash[:alert] = "Incorrect password."
+          flash[:alert] = 'Incorrect password.'
           redirect_to root_path
         end
       end
