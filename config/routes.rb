@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users, only: [:new, :create, :show] do
+  get '/users/:provider/callback' => 'sessions#create'
+  resources :users, only: [:index, :new, :create, :show] do
     resources :posts, only: [:index, :show, :new, :edit]
   end
 
