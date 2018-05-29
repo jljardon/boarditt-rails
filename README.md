@@ -11,11 +11,18 @@ Download repository, update dependencies with:
 bundle install
 ```
 
+Seed the database:
+
+```
+rake db:seed
+```
+
 In the base directory run with:
 
 ```
 thin start -a 127.0.0.1 -p 3000 --ssl
 ```
+
 
 After starting the server, the application can be used with an internet browser (https://localhost:3000). Application log can be seen with the following command in the application base directory:
 
