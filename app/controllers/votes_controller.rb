@@ -7,7 +7,9 @@ class VotesController < ApplicationController
   end
 
   def update
-    @vote = Vote.update(vote_params)
+    # binding.pry
+    @vote = Vote.find_by(user_id: params[:vote][:user_id], post_id: params[:vote][:post_id] )
+    @vote.update(vote_params)
     redirect_to user_post_path(@post.user, @post)
   end
 

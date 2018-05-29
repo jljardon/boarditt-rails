@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    # raise.params.inspect
     @post = Post.new(post_params)
     respond_to do |format|
       if @post.save
@@ -53,7 +54,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :user_id)
+    params.require(:post).permit(:title, :content, :user_id, votes_attributes: [:like, :user])
   end
 
   def set_post

@@ -31,35 +31,41 @@
   <div class="box">
     <div class="container">
       <div class="columns is-multiline">
-        <div class="column is half">
-
+        <div class="column is-half has-background-white">
+          <!-- <div class="box"> -->
           <h2 class="subtitle is-3">User posts:</h2>
 
           <%@user.posts.each do |post|%>
-            <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %>
 
-              <% if user_is_owner(post.user)%>
-                <small>
-                  <small>- [
-                    <%= link_to "Edit post", edit_user_post_path(post.user,post)%>
-                    &nbsp;|&nbsp;
-                    <%= link_to "Delete post", post, method: :delete, data: { confirm: "Do you really want to delete this post?" } %>
-                    ]
+
+              <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %>
+
+                <% if user_is_owner(post.user)%>
+                  <small>
+                    <small>- [
+                      <%= link_to "Edit post", edit_user_post_path(post.user,post)%>
+                      &nbsp;|&nbsp;
+                      <%= link_to "Delete post", post, method: :delete, data: { confirm: "Do you really want to delete this post?" } %>
+                      ]
+                    </small>
                   </small>
-                </small>
-              <%end%>
-            </p>
+                <%end%>
+              </p>
+
           <%end%>
+          <!-- </div> -->
         <%end%>
 
       </div>
-      <div class="column is half">
+      <div class="column is-half has-background-white">
         <%if @user.voted_posts.count > 0%>
+          <!-- <div class="box"> -->
 
-          <h2 class="subtitle is-3">Posts user has voted on:</h2>
-          <%@user.voted_posts.each do |post|%>
-            <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %></p>
-          <%end%>
+            <h2 class="subtitle is-3">Posts user has voted on:</h2>
+            <%@user.voted_posts.each do |post|%>
+              <p class="label is-medium"><%= link_to post.title, user_post_path(post.user,post.id) %></p>
+            <%end%>
+          <!-- </div> -->
         </div>
       <%end%>
     </div>

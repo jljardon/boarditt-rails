@@ -25,8 +25,16 @@
   <br>
   <br>
   <%= f.label 'Content:',class: 'subtitle is-5' %>
-
   <%= f.text_area(:content,{size: '40x10', class: 'textarea', placeholder:'Post content.'}) %>
+  <br>
+  <%if current_page?(new_user_post_path)%>
+  <%= f.fields_for :votes, @post.votes.build do |vote_form| %>
+  <%= vote_form.label 'Inital upvote:',class: 'subtitle is-5' %>
+   <%= vote_form.check_box :like %>
+   <%= vote_form.hidden_field :user, value: current_user.id%>
+  <% end %>
+  <br>
+  <%end%>
   <br>
   <%= f.submit "Post", class:"button is-light"%>
 <% end %>
