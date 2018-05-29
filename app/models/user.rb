@@ -12,4 +12,8 @@ class User < ApplicationRecord
   has_many :comments
   has_many :commented_posts, through: :comments , source: :post, foreign_key: "post_id"
   has_secure_password
+
+  def self.top_3_posters
+    User.select('username').joins(:posts).group(:username).limit(3).order("count_username DESC").count
+  end
 end
