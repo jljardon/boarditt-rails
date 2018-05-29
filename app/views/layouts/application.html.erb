@@ -1,15 +1,103 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BoardittRails</title>
+    <title>Boarditt-Rails</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <!-- Bulma Version 0.7.1-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/forum.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+
+
+
+    <nav class="navbar is-primary topNav sticky-navbar">
+      <div class="container">
+
+        <div id="topNav" class="navbar-menu ">
+          <div class="navbar-start">
+            <%= link_to "Boarditt-Rails", root_path , { class: "navbar-item navbar-text" } %>
+            <%if logged_in?%>
+            <%= link_to "Account", user_path(current_user) , { class: "navbar-item" } %>
+            <%= link_to "All posts", posts_path , { class: "navbar-item" } %>
+            <%= link_to "Top 3", users_path , { class: "navbar-item" } %>
+            <%end%>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+
+                  <%if logged_in? %>
+                  <p class="navbar-item navbar-text"><%= current_user.username%></p>
+                    <a class="button is-small  is-primary  is-inverted" href="/logout" data-method="delete">
+                      <span class="icon">
+                        <i class="fa fa-user"></i>
+                      </span>
+                      <span>Logout</span>
+                    </a>
+                  <%end%>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <br> -->
+    <br>
+    <br>
+    <div class="page" >
+      <div class="container">
+
+        <div class="columns is-centered">
+          <div class="column ">
+            <div class="box">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="container">
+<br><br><br>
+
+    <footer class="footer sticky">
+      <div class="container">
+        <div class="content has-text-centered">
+          <p>
+            <strong>Boarditt</strong>
+            by
+            <a href="https://github.com/jljardon" target="_blank">Jose L. Jardon
+              <span class="icon">
+                <i class="fab fa-github"></i>
+              </span>
+            </a>
+            <br>
+            The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. Icons from
+            <a href="http://fontawesome.io/" target="_blank">Font Awesome</a>.
+
+          </p>
+        </div>
+      </div>
+    </footer>
+</div>
   </body>
 </html>

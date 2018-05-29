@@ -1,0 +1,28 @@
+<div class="box">
+  <%= form_for @comment do |f| %>
+  <% if @comment.errors.any? %>
+    <div class="message is-danger">
+
+      <div class="message-header">
+        There were some errors:
+      </div>
+      <div id="error_explanation" class="message">
+        <h2></h2>
+
+        <ul class="message-body">
+          <% @comment.errors.full_messages.each do |message| %>
+            <li ><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :post_id %>
+  <%= f.label 'Content:',class: 'subtitle is-5' %>
+
+  <%= f.text_area(:content,{size: '40x10', class: 'textarea', placeholder:'Post content.'}) %>
+  <br>
+  <%= f.submit "Comment", class:"button is-light"%>
+<% end %>
+</div>

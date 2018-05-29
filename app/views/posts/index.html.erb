@@ -1,0 +1,18 @@
+<p class="title is-3 is-pulled-right">
+  <%= link_to "[Create post]", new_user_post_path(current_user)%>
+</p>
+<h1 class="title is-2">All posts</h1>
+<hr>
+<div class="box">
+
+  <%@posts.each do |post|%>
+    <div class="media">
+
+      <p class="subtitle is-5"><%=link_to post.title, user_post_path(post.user,post) %>
+        - By
+        <%= link_to post.user.username, user_path(post.user)%>
+      </p>
+    </div>
+    <hr>
+  <%end%>
+</div>

@@ -1,0 +1,41 @@
+<div class="box">
+  <%= form_for @post do |f| %>
+
+  <% if @post.errors.any? %>
+    <div class="message is-danger">
+
+      <div class="message-header">
+        There were some errors:
+      </div>
+      <div id="error_explanation" class="message">
+        <h2></h2>
+
+        <ul class="message-body">
+          <% @post.errors.full_messages.each do |message| %>
+            <li ><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :user_id %>
+  <%= f.label 'Title:',class: 'subtitle is-5' %>
+  <%= f.text_field :title , {class:'input', placeholder:"Post title"}%>
+  <br>
+  <br>
+  <%= f.label 'Content:',class: 'subtitle is-5' %>
+  <%= f.text_area(:content,{size: '40x10', class: 'textarea', placeholder:'Post content.'}) %>
+  <br>
+  <%if current_page?(new_user_post_path)%>
+    <%= f.fields_for :votes, @post.votes.build do |vote_form| %>
+    <%= vote_form.label 'Inital upvote:',class: 'subtitle is-5' %>
+    <%= vote_form.check_box :like %>
+    <%= vote_form.hidden_field :user, value: current_user.id%>
+  <% end %>
+  <br>
+<%end%>
+<br>
+<%= f.submit "Post", class:"button is-light"%>
+<% end %>
+</div>
