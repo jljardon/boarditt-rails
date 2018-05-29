@@ -27,7 +27,7 @@
   <%= f.label 'Content:',class: 'subtitle is-5' %>
   <%= f.text_area(:content,{size: '40x10', class: 'textarea', placeholder:'Post content.'}) %>
   <br>
-  <%if current_page?(new_user_post_path)%>
+  <%if current_page?(action: 'new')%>
     <%= f.fields_for :votes, @post.votes.build do |vote_form| %>
     <%= vote_form.label 'Inital upvote:',class: 'subtitle is-5' %>
     <%= vote_form.check_box :like %>
